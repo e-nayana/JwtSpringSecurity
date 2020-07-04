@@ -8,7 +8,7 @@ import javax.validation.constraints.Size;
 import java.sql.Timestamp;
 
 /**
- * @author houston-hash
+ * @author Houston(Nayana)
  **/
 
 @Entity

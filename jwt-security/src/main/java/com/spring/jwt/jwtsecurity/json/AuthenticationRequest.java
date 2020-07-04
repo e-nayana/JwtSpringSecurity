@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonAlias;
 import com.spring.jwt.jwtsecurity.CONSTANT;
 
 /**
- * @author houston-hash
+ * @author Houston(Nayana)
  **/
 
 public class AuthenticationRequest {

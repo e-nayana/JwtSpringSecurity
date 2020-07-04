@@ -3,7 +3,7 @@ package com.spring.jwt.jwtsecurity.exception;
 import org.springframework.security.core.AuthenticationException;
 
 /**
- * @author houston-hash
+ * @author Houston(Nayana)
  **/
 
 public class JwtAuthenticationException extends AuthenticationException {

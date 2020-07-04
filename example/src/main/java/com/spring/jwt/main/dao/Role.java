@@ -11,7 +11,7 @@ import java.sql.Timestamp;
 import java.util.List;
 
 /**
- * @author houston-hash
+ * @author Houston(Nayana)
  **/
 
 @Entity

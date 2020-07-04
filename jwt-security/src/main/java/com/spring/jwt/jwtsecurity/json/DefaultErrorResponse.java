@@ -1,7 +1,7 @@
 package com.spring.jwt.jwtsecurity.json;
 
 /**
- * @author houston-hash
+ * @author Houston(Nayana)
  **/
 
 /**

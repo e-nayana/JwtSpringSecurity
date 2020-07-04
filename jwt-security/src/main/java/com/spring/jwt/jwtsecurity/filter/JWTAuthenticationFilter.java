@@ -22,7 +22,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 /**
- * @author houston-hash
+ * @author Houston(Nayana)
  **/
 
 /**
@@ -73,7 +73,7 @@ public class JWTAuthenticationFilter extends AbstractAuthenticationProcessingFil
         this.setDetails(httpServletRequest, authRequest);
 
         LOGGER.info("Authenticating initiated by Authentication provider");
-        return this.getAuthenticationManager().authenticate(authRequest);
+        return getAuthenticationManager().authenticate(authRequest);
     }
 
     protected void setDetails(HttpServletRequest request, JwtAuthenticationTokenFactory.JWTAuthenticationToken authRequest) {

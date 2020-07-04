@@ -12,7 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.AnonymousAuthenticationFilter;
 
 /**
- * @author houston-hash
+ * @author Houston(Nayana)
  **/
 
 public abstract class WebSecurityConfigurerAdapterJWT extends WebSecurityConfigurerAdapter implements WebSecurityConfigurer<WebSecurity> {
@@ -43,6 +43,9 @@ public abstract class WebSecurityConfigurerAdapterJWT extends WebSecurityConfigu
                 .and()
                 .authorizeRequests()
                 .anyRequest().authenticated();
+
+
+        http.authorizeRequests().anyRequest().has
 
         http.authenticationProvider(jwtAuthenticationProvider());
         http.addFilterBefore(jwtTokenFissionFilter(), AnonymousAuthenticationFilter.class);

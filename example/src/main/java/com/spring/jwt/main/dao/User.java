@@ -1,8 +1,6 @@
 package com.spring.jwt.main.dao;
 
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.NotFound;
-import org.hibernate.annotations.NotFoundAction;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
@@ -12,7 +10,7 @@ import java.sql.Timestamp;
 import java.util.List;
 
 /**
- * @author houston-hash
+ * @author Houston(Nayana)
  **/
 
 @Entity
@@ -55,23 +53,23 @@ public class User {
     @UpdateTimestamp
     private Timestamp updatedAt;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @NotFound(action = NotFoundAction.IGNORE)
-    @JoinTable(
-            name = "user_role",
-            joinColumns = {@JoinColumn(name = "user_id",referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "role_id",referencedColumnName = "id")}
-    )
-    private List<Role> roles;
-
-    @ManyToMany(fetch = FetchType.LAZY)
-    @NotFound(action = NotFoundAction.IGNORE)
-    @JoinTable(
-            name = "user_permission",
-            joinColumns = {@JoinColumn(name = "user_id",referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "permission_id",referencedColumnName = "id")}
-    )
-    private List<Permission> permissions;
+//    @ManyToMany(fetch = FetchType.EAGER)
+//    @NotFound(action = NotFoundAction.IGNORE)
+//    @JoinTable(
+//            name = "user_role",
+//            joinColumns = {@JoinColumn(name = "user_id",referencedColumnName = "id")},
+//            inverseJoinColumns = {@JoinColumn(name = "role_id",referencedColumnName = "id")}
+//    )
+//    private List<Role> roles;
+//
+//    @ManyToMany(fetch = FetchType.LAZY)
+//    @NotFound(action = NotFoundAction.IGNORE)
+//    @JoinTable(
+//            name = "user_permission",
+//            joinColumns = {@JoinColumn(name = "user_id",referencedColumnName = "id")},
+//            inverseJoinColumns = {@JoinColumn(name = "permission_id",referencedColumnName = "id")}
+//    )
+//    private List<Permission> permissions;
 
 //    @OneToOne(fetch = FetchType.LAZY, mappedBy = "dao")
 //    @NotFound(action = NotFoundAction.IGNORE)
@@ -165,23 +163,23 @@ public class User {
     }
 
     public List<Role> getRoles() {
-        return roles;
+        return null;
     }
 
     public List<Role> getAuthorities() {
-        return roles;
+        return null;
     }
 
     public void setRoles(List<Role> roles) {
-        this.roles = roles;
+
     }
 
     public List<Permission> getPermissions() {
-        return permissions;
+        return null;
     }
 
     public void setPermissions(List<Permission> permissions) {
-        this.permissions = permissions;
+
     }
 
 //    public Profile getProfile() {

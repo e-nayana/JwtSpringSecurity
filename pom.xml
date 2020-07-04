@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<packaging>pom</packaging>
 	<modules>
-		<module>main</module>
+		<module>example</module>
 		<module>jwt-security</module>
 	</modules>
 	<parent>

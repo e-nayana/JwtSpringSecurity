@@ -4,13 +4,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.util.Assert;
 
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * @author houston-hash
+ * @author Houston(Nayana)
  **/
 
 public class AuthUserEngine {
@@ -21,6 +22,7 @@ public class AuthUserEngine {
         }
 
         public static AuthUser create(User user) {
+            Assert.notNull(user.getRoles(), "Authorities cannot be null");
             return new AuthUser(
                     user.getId(),
                     user.getEmail(),
