@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.spring.jwt.jwt-security</groupId>
+    <groupId>com.spring.security.jwt-security</groupId>
     <artifactId>spring-boot-starter-jwt-security</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>

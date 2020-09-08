@@ -1,6 +1,8 @@
 package com.spring.jwt.main.dao;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
@@ -53,33 +55,23 @@ public class User {
     @UpdateTimestamp
     private Timestamp updatedAt;
 
-//    @ManyToMany(fetch = FetchType.EAGER)
-//    @NotFound(action = NotFoundAction.IGNORE)
-//    @JoinTable(
-//            name = "user_role",
-//            joinColumns = {@JoinColumn(name = "user_id",referencedColumnName = "id")},
-//            inverseJoinColumns = {@JoinColumn(name = "role_id",referencedColumnName = "id")}
-//    )
-//    private List<Role> roles;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @NotFound(action = NotFoundAction.IGNORE)
+    @JoinTable(
+            name = "user_role",
+            joinColumns = {@JoinColumn(name = "user_id",referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "role_id",referencedColumnName = "id")}
+    )
+    private List<Role> roles;
 //
-//    @ManyToMany(fetch = FetchType.LAZY)
-//    @NotFound(action = NotFoundAction.IGNORE)
-//    @JoinTable(
-//            name = "user_permission",
-//            joinColumns = {@JoinColumn(name = "user_id",referencedColumnName = "id")},
-//            inverseJoinColumns = {@JoinColumn(name = "permission_id",referencedColumnName = "id")}
-//    )
-//    private List<Permission> permissions;
-
-//    @OneToOne(fetch = FetchType.LAZY, mappedBy = "dao")
-//    @NotFound(action = NotFoundAction.IGNORE)
-//    @JsonIgnoreProperties(value = "dao", allowSetters = true)
-//    private Profile profile;
-
-//    @OneToOne(fetch = FetchType.EAGER)
-//    @NotFound(action = NotFoundAction.IGNORE)
-//    @JoinColumn(name = "id", updatable = false,insertable = false)
-//    private Profile profile;
+    @ManyToMany(fetch = FetchType.LAZY)
+    @NotFound(action = NotFoundAction.IGNORE)
+    @JoinTable(
+            name = "user_permission",
+            joinColumns = {@JoinColumn(name = "user_id",referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "permission_id",referencedColumnName = "id")}
+    )
+    private List<Permission> permissions;
 
 
     public Long getId() {
@@ -163,7 +155,7 @@ public class User {
     }
 
     public List<Role> getRoles() {
-        return null;
+        return this.roles;
     }
 
     public List<Role> getAuthorities() {
@@ -182,12 +174,8 @@ public class User {
 
     }
 
-//    public Profile getProfile() {
-//        return profile;
-//    }
-//
-//    public void setProfile(Profile profile) {
-//        this.profile = profile;
-//    }
+
+
+
 
 }
