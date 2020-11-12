@@ -2,7 +2,6 @@ package com.spring.jwt.main;
 
 import com.spring.jwt.main.redis.RedisUserService;
 import com.spring.jwt.main.redis.TestClass;
-import org.aspectj.weaver.ast.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.userdetails.UserDetails;

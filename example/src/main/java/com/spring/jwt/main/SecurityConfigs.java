@@ -40,7 +40,6 @@ public class SecurityConfigs {
             return redisUserCache;
         }
 
-
         @Override
         public PasswordEncoder getPasswordEncoder() {
             return new BCryptPasswordEncoder();
