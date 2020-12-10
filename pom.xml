@@ -5,7 +5,7 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>example</module>
-		<module>jwt-security</module>
+		<module>spring-boot-starter-jwt-security</module>
     </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>

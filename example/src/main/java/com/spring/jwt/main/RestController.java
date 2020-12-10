@@ -18,16 +18,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class RestController {
 
     UserDetailsService userDetailsService;
-    RedisUserService redisUserService;
+//    RedisUserService redisUserService;
 
     @Autowired
     public RestController(
-            @Qualifier("userDetailServiceImpl") UserDetailsService userDetailsService,
-            RedisUserService redisUserService
+            @Qualifier("userDetailServiceImpl") UserDetailsService userDetailsService
+//            , RedisUserService redisUserService
 
     ) {
         this.userDetailsService = userDetailsService;
-        this.redisUserService = redisUserService;
+//        this.redisUserService = redisUserService;
     }
 
 
@@ -43,14 +43,15 @@ public class RestController {
         TestClass testClass = new TestClass();
         testClass.setInteger(1);
 
-        redisUserService.put("test", testClass);
+//        redisUserService.put("test", testClass);
 
         return "test";
     }
 
     @RequestMapping(value = "/redis-test/fetch", method = RequestMethod.GET)
     public TestClass redisGet(){
-        return redisUserService.get("test");
+//        return redisUserService.get("test");
+        return null;
     }
 
 }

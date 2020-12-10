@@ -1,6 +1,5 @@
 package com.spring.jwt.main.redis;
 
-import com.spring.security.jwtsecurity.authentication_token.JwtAuthenticationTokenFactory;
 import com.spring.security.jwtsecurity.cache.CacheSessionHandleService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,9 +38,9 @@ public class RedisCacheSessionProvider implements CacheSessionHandleService {
     @Override
     public boolean support(Class<?> authentication) {
 
-        if(JwtAuthenticationTokenFactory.JWTAuthenticationToken.class.isInstance(authentication)){
-            return true;
-        }
+//        if(AuthenticationTokenFactory.JWTAuthenticationToken.class.isInstance(authentication)){
+//            return true;
+//        }
         return false;
     }
 }

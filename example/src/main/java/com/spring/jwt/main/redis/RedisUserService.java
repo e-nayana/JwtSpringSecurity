@@ -9,10 +9,10 @@ import org.springframework.stereotype.Service;
  * @author Houston(Nayana)
  **/
 
-@Service
+//@Service
 public class RedisUserService extends RedisCacheStorageService<String, TestClass> {
 
-    @Autowired
+//    @Autowired
     public RedisUserService(LettuceConnectionFactory lettuceConnectionFactory) {
         super(lettuceConnectionFactory, TestClass.class);
     }

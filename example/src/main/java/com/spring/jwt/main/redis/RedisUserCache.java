@@ -11,10 +11,10 @@ import org.springframework.stereotype.Service;
  * @author Houston(Nayana)
  **/
 
-@Service
+//@Service
 public class RedisUserCache extends RedisCacheStorageService<String, UserDetails> implements UserCache {
 
-    @Autowired
+//    @Autowired
     public RedisUserCache(LettuceConnectionFactory lettuceConnectionFactory) {
         super(lettuceConnectionFactory, UserDetails.class);
     }

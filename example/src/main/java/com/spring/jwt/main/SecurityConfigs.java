@@ -32,12 +32,9 @@ public class SecurityConfigs {
         @Resource(name = "userDetailServiceImpl")
         private UserDetailsService userDetailsService;
 
-        @Autowired
-        private RedisUserCache redisUserCache;
-
         @Override
         public UserCache userCache(){
-            return redisUserCache;
+            return null;
         }
 
         @Override
