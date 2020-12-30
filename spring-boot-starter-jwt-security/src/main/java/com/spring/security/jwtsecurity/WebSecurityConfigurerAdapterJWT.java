@@ -1,9 +1,7 @@
 package com.spring.security.jwtsecurity;
 
 import com.spring.security.jwtsecurity.auth_semi.JwtAuthenticationTokenFactory;
-import com.spring.security.jwtsecurity.configs.JwtAuthenticationConfigProperties;
 import com.spring.security.jwtsecurity.configs.JwtConfigurationProperties;
-import com.spring.security.jwtsecurity.configs.JwtTokenConfigProperties;
 import com.spring.security.jwtsecurity.filter.JWTAuthenticationFilter;
 import com.spring.security.jwtsecurity.filter.JwtTokenFissionFilter;
 import com.spring.security.jwtsecurity.jwt.JWTEngine;

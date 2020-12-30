@@ -20,8 +20,9 @@ spring:
       jwt:
         token:
           production: false
+          ttl: 60000
         auth:
-          url: /xxxx
+          url: /authenticate
           method: POST
           alpha: username
           beta: password
