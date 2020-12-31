@@ -54,4 +54,12 @@ public class RestController {
         return null;
     }
 
+    @RequestMapping(value = "/ping", method = RequestMethod.GET)
+    public String ping(){
+//        return redisUserService.get("test");
+        return "pong";
+    }
+
+
+
 }

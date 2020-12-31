@@ -3,7 +3,7 @@ package com.spring.security.jwtsecurity;
 import com.spring.security.jwtsecurity.auth_semi.JwtAuthenticationTokenFactory;
 import com.spring.security.jwtsecurity.configs.JwtConfigurationProperties;
 import com.spring.security.jwtsecurity.filter.JWTAuthenticationFilter;
-import com.spring.security.jwtsecurity.filter.JwtTokenFissionFilter;
+import com.spring.security.jwtsecurity.filter.JwtTokenSubstantiateFilter;
 import com.spring.security.jwtsecurity.jwt.JWTEngine;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -14,7 +14,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserCache;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.authentication.AnonymousAuthenticationFilter;
+import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
 /**
  * @author Houston(Nayana)
@@ -39,14 +39,12 @@ public abstract class WebSecurityConfigurerAdapterJWT extends WebSecurityConfigu
         return new JwtAuthenticationTokenFactory(jwtEngine());
     }
 
-    @Bean
     public JWTAuthenticationFilter jwtAuthenticationFilter() throws Exception{
         return new JWTAuthenticationFilter(super.authenticationManagerBean(), jwtAuthenticationTokenFactory(), configurationProperties().getAuth());
     }
 
-    @Bean
-    public JwtTokenFissionFilter jwtTokenFissionFilter() throws Exception{
-        return new JwtTokenFissionFilter(super.authenticationManagerBean(), jwtAuthenticationTokenFactory());
+    public JwtTokenSubstantiateFilter jwtTokenSubstantiateFilter() throws Exception{
+        return new JwtTokenSubstantiateFilter(super.authenticationManagerBean(), jwtAuthenticationTokenFactory());
     }
 
     public JWTAuthenticationEntryPoint jwtAuthenticationEntryPoint(){
@@ -67,10 +65,10 @@ public abstract class WebSecurityConfigurerAdapterJWT extends WebSecurityConfigu
                 .anyRequest().authenticated();
 
         http.authenticationProvider(jwtAuthenticationProvider());
-        http.addFilterBefore(jwtTokenFissionFilter(), AnonymousAuthenticationFilter.class);
-        http.addFilterBefore(jwtAuthenticationFilter(), JwtTokenFissionFilter.class);
-    }
 
+        http.addFilterBefore(jwtTokenSubstantiateFilter(), BasicAuthenticationFilter.class);
+        http.addFilterBefore(jwtAuthenticationFilter(), JwtTokenSubstantiateFilter.class);
+    }
 
     /**
      * If encoding passwords is not necessary in current case, return null

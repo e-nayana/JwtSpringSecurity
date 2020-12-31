@@ -1,6 +1,5 @@
 package com.spring.jwt.main;
 
-import com.spring.jwt.main.redis.RedisUserCache;
 import com.spring.security.jwtsecurity.WebSecurityConfigurerAdapterJWT;
 import com.spring.security.jwtsecurity.filter.JWTAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.UserCache;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -33,7 +33,7 @@ public class SecurityConfigs {
         private UserDetailsService userDetailsService;
 
         @Override
-        public UserCache userCache(){
+        public UserCache userCache() {
             return null;
         }
 
@@ -43,12 +43,12 @@ public class SecurityConfigs {
         }
 
         @Override
-        public UserDetailsService getUserDetailService(){
+        public UserDetailsService getUserDetailService() {
             return userDetailsService;
         }
 
         @Bean
-        public TenantFilter tenantFilter(){
+        public TenantFilter tenantFilter() {
             return new TenantFilter();
         }
 
@@ -57,6 +57,11 @@ public class SecurityConfigs {
 
             super.configure(http);
             http.addFilterBefore(tenantFilter(), JWTAuthenticationFilter.class);
+        }
+
+        @Override
+        public void configure(WebSecurity web) throws Exception {
+            web.ignoring().antMatchers("/rest/**");
         }
     }
 }
